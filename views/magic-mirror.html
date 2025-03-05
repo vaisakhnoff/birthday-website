@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic Mirror 🔮</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script defer src="../js/mirror.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🔮 Look into the Magic Mirror 🔮</h1>
+        <video autoplay></video>
+        <p>You are the most beautiful person in the world! ❤️</p>
+        <a href="../views/scroll-unlock.html" class="btn">Next 🔓</a>
+    </div>
+    <script>
+        navigator.mediaDevices.getUserMedia({ video: true }).then(stream => {
+            document.querySelector("video").srcObject = stream;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Unlock 🔓</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script defer src="../js/unlock.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>🔓 Scroll to Unlock Your Final Surprise! 🔓</h1>
+        <p id="hidden-text">🎁 I have a special gift waiting for you! 🎁</p>
+        <a href="gallery.html" class="btn">Final Surprise 🎊</a>
+    </div>
+    <script>
+        document.addEventListener("scroll", () => {
+            document.getElementById("hidden-text").style.display = "block";
+        });
+    </script>
+</body>
+</html>

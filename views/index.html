@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday ❤️</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #ff69b4, #8a2be2);
+            overflow: hidden;
+        }
+        .birthday-container {
+            position: relative;
+            text-align: center;
+            width: min(90%, 600px);
+            margin: 2rem auto;
+            padding: clamp(1rem, 5vw, 2rem);
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: clamp(10px, 2vw, 20px);
+            box-shadow: 0 0 30px rgba(0,0,0,0.2);
+        }
+        .floating-balloons {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+        }
+        .balloon {
+            position: absolute;
+            font-size: clamp(2rem, 6vw, 3rem);
+            animation: floatBalloon 15s linear infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(min(-10px, -2vw)); }
+        }
+        .sparkle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #fff;
+            border-radius: 50%;
+            animation: sparkle 1.5s linear infinite;
+        }
+        @keyframes sparkle {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(0); opacity: 0; }
+        }
+        h1 {
+            font-size: 3.5em;
+            background: linear-gradient(45deg, #ff69b4, #8a2be2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 30px;
+        }
+        .start-btn {
+            font-size: 1.5em;
+            padding: 15px 40px;
+            background: linear-gradient(45deg, #ff69b4, #8a2be2);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .start-btn:hover {
+            transform: scale(1.1);
+        }
+        .love-message, .birthday-wish {
+            margin: clamp(0.5rem, 2vw, 1rem) auto;
+            max-width: 60ch;
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-balloons" id="balloons"></div>
+    <div class="birthday-container">
+        <h1>🎉 Happy Birthday, My Love! 🎉</h1>
+        <p class="love-message">Today is all about celebrating the most amazing person in my life - YOU! ❤️</p>
+        <p class="birthday-wish">Get ready for a magical journey filled with love, surprises, and endless joy!</p>
+        <a href="../views/countdown.html" class="start-btn">Begin Your Magical Journey 🎁✨</a>
+    </div>
+    <script>
+        // Add floating balloons
+        const balloons = ['🎈', '🎁', '🎊', '✨', '💝', '🎂'];
+        const balloonsContainer = document.getElementById('balloons');
+        
+        for(let i = 0; i < 20; i++) {
+            const balloon = document.createElement('div');
+            balloon.className = 'balloon';
+            balloon.style.left = Math.random() * 100 + 'vw';
+            balloon.style.animationDelay = Math.random() * 15 + 's';
+            balloon.innerHTML = balloons[Math.floor(Math.random() * balloons.length)];
+            balloonsContainer.appendChild(balloon);
+        }
+
+        // Add sparkles
+        for(let i = 0; i < 30; i++) {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.left = Math.random() * 100 + 'vw';
+            sparkle.style.top = Math.random() * 100 + 'vh';
+            sparkle.style.animationDelay = Math.random() * 2 + 's';
+            document.body.appendChild(sparkle);
+        }
+    </script>
+</body>
+</html>
